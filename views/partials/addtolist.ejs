@@ -1,0 +1,35 @@
+<!-- add to list modal -->
+  <div id="addtolist" class="modal">
+    <div class="modal-content">
+      <h4>Add to List</h4>
+
+      <form id="listadd" action="/lists/" method="POST">
+        <div class="input-field col s12">
+    <select name="listId">
+      <option value="" disabled selected>Choose a list</option>
+      <% if (currentUser) { %>
+      <% lists.forEach(function(list) { %>
+              <option value="<%= list.id %>"><%= list.name %></option>
+
+       <% }); %>
+       <% } %>
+    </select>
+    <label>List Select</label>
+  </div>
+  <div>
+    <input type="text" name="queenId" id="queenId" value=""/>
+  </div>
+        <input class="btn btn-primary modal-close" type="submit" value="add">
+      </form>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+    </div>
+  </div>
+
+<script>
+  document.getElementById('listadd').listId.onchange = function() {
+      var newaction = "/lists/" + this.value;
+      document.getElementById('listadd').action = newaction;
+  };
+</script>

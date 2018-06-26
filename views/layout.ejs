@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>RuPaul's Drag Race</title>
+  </head>
+  <body>
+    <nav class="pink">
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo">RPDB</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a class="modal-trigger" href="#sign-up">Sign Up</a></li>
+        <li><a class="modal-trigger" href="#login">Log In</a></li>
+        <li><a class="dropdown-trigger" href="#!" data-target="mylists">My Lists<i class="material-icons right">arrow_drop_down</i></a></li>
+        <li><a href="#">All Queens</a></li>
+        <li><a class="dropdown-trigger" href="#!" data-target="seasons">Seasons<i class="material-icons right">arrow_drop_down</i></a></li>
+    </div>
+  </nav>
+  <!-- seasons dropdown -->
+  <ul id="seasons" class="dropdown-content">
+    <li><a href="/season/1">1</a></li>
+    <li><a href="/season/2">2</a></li>
+    <li><a href="/season/3">3</a></li>
+    <li><a href="/season/4">4</a></li>
+    <li><a href="/season/5">All-Stars</a></li>
+    <li><a href="/season/6">5</a></li>
+    <li><a href="/season/7">6</a></li>
+    <li><a href="/season/8">7</a></li>
+    <li><a href="/season/9">8</a></li>
+    <li><a href="/season/10">All-Stars 2</a></li>
+    <li><a href="/season/11">9</a></li>
+    <li><a href="/season/12">All-Stars 3</a></li>
+    <li><a href="/season/13">10</a></li>
+
+  </ul>
+  <!-- lists dropdown -->
+  <ul id="mylists" class="dropdown-content">
+    <li><a href="/lists">My Lists</a></li>
+    <li><a >New List</a></li>
+  </ul>
+<!-- signup modal -->
+  <div id="sign-up" class="modal">
+    <div class="modal-content">
+      <h4>Sign Up</h4>
+      <form action="/auth/signup" method="POST">
+        <div class="form-group">
+          <label for="authEmail">Email</label>
+          <input id="authEmail" class="form-control" type="email" name="email">
+        </div>
+
+        <div class="form-group">
+          <label for="authName">Name</label>
+          <input id="authName" class="form-control" type="text" name="name">
+        </div>
+
+        <div class="form-group">
+          <label for="authPassword">Password</label>
+          <input id="authPassword" class="form-control" type="password" name="password">
+        </div>
+
+        <input class="btn btn-primary modal-close" type="submit">
+      </form>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+    </div>
+  </div>
+
+  <!-- login modal -->
+  <div id="login" class="modal">
+    <div class="modal-content">
+      <h4>Log In</h4>
+      <form action="/auth/login" method="POST">
+        <div class="form-group">
+          <label for="authEmail">Email</label>
+          <input id="authEmail" class="form-control" type="email" name="email">
+        </div>
+
+        <div class="form-group">
+          <label for="authPassword">Password</label>
+          <input id="authPassword" class="form-control" type="password" name="password">
+        </div>
+
+        <input class="btn btn-primary" type="submit">
+      </form>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+    </div>
+  </div>
+  <%- JSON.stringify(currentUser) %>
+  <% include partials/alerts %>
+  <% include partials/newlist %>
+    <%- body %>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="   crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+  <script src='/js/script.js'></script>
+  </body>
+</html>

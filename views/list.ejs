@@ -1,0 +1,30 @@
+
+<h1><%= list.name %></h1>
+
+<button class="btn pink modal-trigger" href="#editname" type="button" id="<%= list.id %>">Rename List</button>
+
+<% queens.forEach(function(queen) { %>
+    <div>
+      <a href="/queens/<%= queen.name %>"><h4><%= queen.name %></h4></a>
+      <button class="btn pink delete" href="/lists/<%= list.id %>/<%= queen.id %>" type="button" id="<%= queen.id %>">Delete from List</button>
+    </div>
+ <% }); %>
+
+
+ <!-- edit name modal -->
+   <div id="editname" class="modal">
+     <div class="modal-content">
+       <h4>New List</h4>
+       <form class="update" action="/lists/<%= list.id %>/" method="POST">
+         <div class="form-group">
+           <label for="name">New List Name</label>
+           <input id="name" class="form-control" type="text" name="name">
+         </div>
+
+         <input class="btn btn-primary modal-close" type="submit">
+       </form>
+     </div>
+     <div class="modal-footer">
+       <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+     </div>
+   </div>
