@@ -22,7 +22,7 @@ describe('Creating a List', function() {
   });
 
   it('should be associated with a user', function(done) {
-    db.list.findById(0)
+    db.list.findById(1)
         .then(function(list) {
           list.getUser().then(function(user) {
           if (!user) throw Error();

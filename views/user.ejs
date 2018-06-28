@@ -1,8 +1,9 @@
-<h1>your lists are here</h1>
+<h1>Your Lists</h1>
 
 <% lists.forEach(function(list) { %>
     <div>
       <a href="/lists/<%= list.id %>"><h4><%= list.name %></h4></a>
     </div>
  <% }); %>
-<h5><a class="modal-trigger" href="#newlist">new list</a></h5>
+ <br>
+<button class="btn pink accent-2 modal-trigger newlist" type="button" href="#newlist">New List</button>

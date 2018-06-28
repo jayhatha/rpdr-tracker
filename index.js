@@ -42,7 +42,7 @@ app.get('/', function(req, res) {
   app.get('/season/:id', function(req, res) {
     var rpdrUrl = 'http://www.nokeynoshade.party/api/seasons/' + req.params.id+ '/queens';
     request(rpdrUrl, function(error, response, body) {
-      console.log('error:', error); // Print the error if one occurred
+      if (response.statusCode == 200){
       var queens = JSON.parse(body);
       if (req.user) {
         db.user.findById(req.user.id)
@@ -54,22 +54,62 @@ app.get('/', function(req, res) {
     })
 
       } else {
-        console.log('no user found');
+        console.log('no user found, showing season queens');
         res.render('season', { queens: queens, lists: []});
       }
+    } else
+      res.send('Too many calls to the Drag Race API. Try again later.');
     })
   });
 
-app.get('/queens/:name', function(req, res) {
-  var eventUrl = "https://www.eventbriteapi.com/v3/events/search/?q=drag+rupaul+'" + req.params.name + "'&token=" + process.env.ALYSSAS_TOKEN;
-  request(eventUrl, function(error, response, body) {
-    var events = JSON.parse(body);
-    res.render('show', { events: events.events, queen: req.params.name });
-  });
+  app.get('/all', function(req, res) {
+    var rpdrUrl = 'http://www.nokeynoshade.party/api/queens/all';
+    request(rpdrUrl, function(error, response, body) {
+      if (response.statusCode == 200){
+      var queens = JSON.parse(body);
+      if (req.user) {
+        db.user.findById(req.user.id)
+        .then(function(user) {
+        console.log('user found');
+        user.getLists().then(function(lists) {
+          res.render('all', { queens: queens, lists: lists });
+        })
+    })
+
+      } else {
+        console.log('no user found, showing season queens');
+        res.render('season', { queens: queens, lists: []});
+      } } else
+        res.send('Too many calls to the Drag Race API. Try again later.');
+    })
   });
 
+app.get('/queens/:id', function(req, res) {
+  var rpdrUrl = "http://www.nokeynoshade.party/api/queens/" + req.params.id + "/";
+
+
+  request(rpdrUrl, function(error, response, body) {
+    if (response.statusCode == 200){
+      var queen = JSON.parse(body);
+      console.log("my queen is " + queen.name);
+      var ytUrl = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + queen.name + "+rupaul+lipsync&key=" + process.env.YOUTUBE_KEY;
+      var eventUrl = "https://www.eventbriteapi.com/v3/events/search/?q=drag+rupaul+'" + queen.name + "'&token=" + process.env.ALYSSAS_TOKEN;
+        request(ytUrl, function(error, response, body) {
+            var videos = JSON.parse(body);
+              request(eventUrl, function(error, response, body) {
+              var events = JSON.parse(body);
+              console.log(videos.items[0].id.videoId);
+              res.render('show', { queen: queen, videos: videos, events: events.events });
+                });
+          });
+        } else
+          res.render('error');
+        });
+});
+
+
+
   app.get('/lists', isLoggedIn, function(req, res) {
-    console.log(req.user.id);
     db.user.findById(req.user.id)
     .then(function(user) {
     user.getLists().then(function(lists) {
@@ -123,10 +163,9 @@ app.post('/lists/:id', isLoggedIn, function(req, res) {
       db.queen.findOrCreate({
         where: { name: req.body.queenId }
       }).spread(function(queen, created) {
-        // project.addCategory(category) :)
         list.addQueen(queen).then(function(data) {
           req.flash('success', 'Added to list!');;
-          res.redirect('/lists/:id');
+          res.redirect('/lists/' + req.params.id);
         });
       });
     }).catch(function(error) {
@@ -135,7 +174,6 @@ app.post('/lists/:id', isLoggedIn, function(req, res) {
 });
 
 app.delete('/lists/:listId/:queenId', function(req, res) {
-    console.log('queenId is ' + req.params.queenId + '  listId is' + req.params.listId)
     db.queensLists.destroy({
       where: {queenId: req.params.queenId, listId: req.params.listId  }
     })

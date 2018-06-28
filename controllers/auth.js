@@ -26,8 +26,8 @@ router.post('/signup', function(req, res) {
     if (created) {
       // no record was found, so we created one
       passport.authenticate('local', {
-        successRedirect: '#',
-        successFlash: 'Account created and logged in!'
+        successRedirect: '/',
+        successFlash: 'Account created and logged in! Hiiiiiiieeeeee!'
       })(req, res);
     } else {
       // we found a record, so they can't use that email
@@ -44,9 +44,9 @@ router.post('/signup', function(req, res) {
 
 // POST auth/login - processes login form
 router.post('/login', passport.authenticate('local', {
-  successRedirect: '#',
+  successRedirect: '/',
   failureRedirect: '#',
-  successFlash: 'You have logged in.',
+  successFlash: 'You have logged in. Hieeeee!',
   failureFlash: 'Invalid username and/or password.'
 }));
 
@@ -54,7 +54,7 @@ router.post('/login', passport.authenticate('local', {
 router.get('/logout', function(req, res) {
   //passport logout removes req.user and clears session
   req.logout();
-  req.flash('success', 'you have logged out. byeeeeee!');
+  req.flash('success', 'You have logged out. Byeeeeee!');
   res.redirect('/');
 
 });

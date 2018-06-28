@@ -1,0 +1,29 @@
+h1 {
+  font-family: 'Lemon', cursive;
+  text-shadow: 0 0 3px #000000;
+}
+
+.nav-link,
+a.dropdown-trigger {
+  color: white !important;
+}
+
+a {
+  color: pink !important;
+  text-shadow: 0 0 10px #ffffff;
+}
+
+li a {
+  color: black !important;
+  text-shadow: 0 0 10px #ffffff;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  background-color: black;
+  color: #ff4081;
+}

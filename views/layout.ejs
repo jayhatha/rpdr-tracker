@@ -1,23 +1,88 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+  <!-- How's your <head>? I haven't had any complaints.-->
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <link rel="stylesheet" href="/css/style.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato|Lemon" rel="stylesheet">
     <title>RuPaul's Drag Race</title>
   </head>
   <body>
-    <nav class="pink">
+
+  <!--Miss Vanjie -->
+
+
+    <nav class="pink accent-2">
     <div class="nav-wrapper">
-      <a href="/" class="brand-logo">RPDB</a>
+      <a href="/" class="brand-logo"><img class="responsive-img" src="/img/logosmall.png"></a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a class="modal-trigger" href="#sign-up">Sign Up</a></li>
-        <li><a class="modal-trigger" href="#login">Log In</a></li>
         <li><a class="dropdown-trigger" href="#!" data-target="mylists">My Lists<i class="material-icons right">arrow_drop_down</i></a></li>
-        <li><a href="#">All Queens</a></li>
+        <li><a href="/all" class="nav-link">All Queens</a></li>
         <li><a class="dropdown-trigger" href="#!" data-target="seasons">Seasons<i class="material-icons right">arrow_drop_down</i></a></li>
+        <li><a class="dropdown-trigger" href="#!" data-target="login-dropdown">
+          <% if (currentUser) { %>
+           <%= currentUser.name%>
+          <% }%>
+
+        <i class="material-icons right">perm_identity</i></li>
+    </a>
     </div>
   </nav>
+
+<!--Miss Vanjie -->
+ <ul id="mobile-demo" class="sidenav">
+   <% if (currentUser) { %>
+    <p>Hiieeeeeeeeee,  <%= currentUser.name%>!</p>
+   <li><a href="/auth/logout">Log Out</a></li>
+   <% } else { %>
+     <li><a class="modal-trigger" href="#sign-up">Sign Up</a></li>
+     <li><a class="modal-trigger" href="#login">Log In</a></li>
+     <% }; %>
+   <li><a href="/all">All Queens</a></li>
+       <li class="no-padding">
+         <ul class="collapsible collapsible-accordion">
+           <li>
+             <a class="collapsible-header">Seasons<i class="material-icons">arrow_drop_down</i></a>
+             <div class="collapsible-body">
+               <ul>
+                 <li><a href="/season/1">1</a></li>
+                 <li><a href="/season/2">2</a></li>
+                 <li><a href="/season/3">3</a></li>
+                 <li><a href="/season/4">4</a></li>
+                 <li><a href="/season/5">All-Stars</a></li>
+                 <li><a href="/season/6">5</a></li>
+                 <li><a href="/season/7">6</a></li>
+                 <li><a href="/season/8">7</a></li>
+                 <li><a href="/season/9">8</a></li>
+                 <li><a href="/season/10">All-Stars 2</a></li>
+                 <li><a href="/season/11">9</a></li>
+                 <li><a href="/season/12">All-Stars 3</a></li>
+                 <li><a href="/season/13">10</a></li>
+               </ul>
+             </div>
+           </li>
+         </ul>
+       </li>
+       <li class="no-padding">
+         <ul class="collapsible collapsible-accordion">
+           <li>
+             <a class="collapsible-header">My Lists<i class="material-icons">arrow_drop_down</i></a>
+             <div class="collapsible-body">
+               <ul>
+                 <li><a href="/lists">My Lists</a></li>
+                 <li><a >New List</a></li>
+               </ul>
+             </div>
+           </li>
+         </ul>
+       </li>
+
+     </ul>
+
+
   <!-- seasons dropdown -->
   <ul id="seasons" class="dropdown-content">
     <li><a href="/season/1">1</a></li>
@@ -33,12 +98,22 @@
     <li><a href="/season/11">9</a></li>
     <li><a href="/season/12">All-Stars 3</a></li>
     <li><a href="/season/13">10</a></li>
-
   </ul>
+
   <!-- lists dropdown -->
   <ul id="mylists" class="dropdown-content">
     <li><a href="/lists">My Lists</a></li>
     <li><a >New List</a></li>
+  </ul>
+  <!-- login dropdown -->
+  <ul id="login-dropdown" class="dropdown-content">
+    <% if (currentUser) { %>
+    <li><a href="/auth/logout">Log Out</a></li>
+    <% } else { %>
+      <li><a class="modal-trigger" href="#sign-up">Sign Up</a></li>
+      <li><a class="modal-trigger" href="#login">Log In</a></li>
+      <% }; %>
+
   </ul>
 <!-- signup modal -->
   <div id="sign-up" class="modal">
@@ -60,11 +135,11 @@
           <input id="authPassword" class="form-control" type="password" name="password">
         </div>
 
-        <input class="btn btn-primary modal-close" type="submit">
+        <input class="btn pink accent-2 modal-close" type="submit">
       </form>
     </div>
     <div class="modal-footer">
-      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+      <a href="#!" class="modal-close waves-effect waves-pink btn-flat">Close</a>
     </div>
   </div>
 
@@ -83,17 +158,22 @@
           <input id="authPassword" class="form-control" type="password" name="password">
         </div>
 
-        <input class="btn btn-primary" type="submit">
+        <input class="btn pink accent-2" type="submit">
       </form>
     </div>
     <div class="modal-footer">
-      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+      <a href="#!" class="modal-close waves-effect waves-pink btn-flat">Close</a>
     </div>
   </div>
-  <%- JSON.stringify(currentUser) %>
+
   <% include partials/alerts %>
   <% include partials/newlist %>
-    <%- body %>
+  <div class="container">
+  <%- body %>
+  </div>
+
+  <!--Miss Vanjie -->
+
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="   crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
   <script src='/js/script.js'></script>
