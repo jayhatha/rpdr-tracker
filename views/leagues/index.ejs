@@ -1,0 +1,9 @@
+<h1>All Leagues</h1>
+
+<% leagues.forEach(function(league) { %>
+    <div>
+      <a href="/leagues/<%= league.id %>"><h4><%= league.name %></h4></a> <h3> (Season <%= league.season %>)</h3>
+    </div>
+ <% }); %>
+ <br>
+<button class="btn pink accent-2 modal-trigger newleague" type="button" href="#newleague">New League</button>

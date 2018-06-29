@@ -1,0 +1,6 @@
+<h1><%= team.name %></h1>
+<p><%= team.user.name %></p>
+<p><%= team.description %></p>
+<% if (currentUser && currentUser.id === team.userId) { %>
+    <a class="btn pink accent-2" type="button" href="/teams/<%= team.id %>/manage">Manage Team</a>
+  <% } %>

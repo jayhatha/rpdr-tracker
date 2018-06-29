@@ -2,6 +2,8 @@
 var bcrypt = require('bcrypt');
 module.exports = (sequelize, DataTypes) => {
   var user = sequelize.define('user', {
+    bio: DataTypes.TEXT,
+    fave: DataTypes.STRING,
     name: {
       type: DataTypes.STRING,
       validate: {
@@ -40,16 +42,20 @@ module.exports = (sequelize, DataTypes) => {
   });
   user.associate = function(models) {
     models.user.hasMany(models.list);
+    models.user.hasMany(models.team);
+  };
+
     // here we check the entered password against the hashed pw in the db
     user.prototype.validPassword = function(passwordTyped) {
       return bcrypt.compareSync(passwordTyped, this.password);
     };
+
     //this removes the password for serializing
     user.prototype.toJSON = function() {
       var userData = this.get();
       delete userData.password;
       return userData;
     }
-  };
+
   return user;
 };

@@ -3,6 +3,10 @@ h1 {
   text-shadow: 0 0 3px #000000;
 }
 
+input:focus {
+  border-bottom-color: #ff4081 !important;
+}
+
 .nav-link,
 a.dropdown-trigger {
   color: white !important;

@@ -58,7 +58,7 @@ app.get('/', function(req, res) {
         res.render('season', { queens: queens, lists: []});
       }
     } else
-      res.send('Too many calls to the Drag Race API. Try again later.');
+      res.render('error');
     })
   });
 
@@ -80,9 +80,11 @@ app.get('/', function(req, res) {
         console.log('no user found, showing season queens');
         res.render('season', { queens: queens, lists: []});
       } } else
-        res.send('Too many calls to the Drag Race API. Try again later.');
+        res.render('error');
     })
   });
+
+  // shows videos and events for one queen
 
 app.get('/queens/:id', function(req, res) {
   var rpdrUrl = "http://www.nokeynoshade.party/api/queens/" + req.params.id + "/";
@@ -109,80 +111,12 @@ app.get('/queens/:id', function(req, res) {
 
 
 
-  app.get('/lists', isLoggedIn, function(req, res) {
-    db.user.findById(req.user.id)
-    .then(function(user) {
-    user.getLists().then(function(lists) {
-      res.render('user', {
-        user: req.user,
-        lists: lists
-      });
-      });
-});
-});
 
-app.get('/lists/:id', isLoggedIn, function(req, res) {
-  db.list.findById(req.params.id)
-  .then(function(list) {
-  list.getQueens().then(function(queens) {
-    res.render('list', {
-      user: req.user,
-      queens: queens,
-      list: list
-    });
-    });
-});
-});
-
-app.put('/lists/:index/', function(req, res) {
-    db.list.update({
-      name: req.body.name,
-    }, {
-      where: {id: req.params.index}
-    }).then(function(data) {
-      res.sendStatus('200').end();
-  })
-});
-
-app.post('/lists/', isLoggedIn, function(req, res) {
-  db.list.create({
-    name: req.body.name,
-    userId: req.user.id,
-  })
-    .then(function(list) {
-          req.flash('success', 'List created!');
-          res.redirect('#');
-        });
-});
-
-//adding a queen to a list
-
-app.post('/lists/:id', isLoggedIn, function(req, res) {
-  db.list.findById(req.params.id)
-  .then(function(list) {
-      db.queen.findOrCreate({
-        where: { name: req.body.queenId }
-      }).spread(function(queen, created) {
-        list.addQueen(queen).then(function(data) {
-          req.flash('success', 'Added to list!');;
-          res.redirect('/lists/' + req.params.id);
-        });
-      });
-    }).catch(function(error) {
-      res.status(400).render('main/404');
-    });
-});
-
-app.delete('/lists/:listId/:queenId', function(req, res) {
-    db.queensLists.destroy({
-      where: {queenId: req.params.queenId, listId: req.params.listId  }
-    })
-    .then(function(data) {
-      res.sendStatus(200);
-  });
-});
 
 app.use('/auth', require('./controllers/auth'));
+app.use('/lists', require('./controllers/lists'));
+app.use('/leagues', require('./controllers/leagues'));
+app.use('/teams', require('./controllers/teams'));
 
 var server = app.listen(process.env.PORT || 3000);
 

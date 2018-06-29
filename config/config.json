@@ -1,16 +1,16 @@
 {
   "development": {
-    "database": "rpdb_test",
+    "database": "rpdr_test",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "test": {
-    "database": "rpdb_test",
+    "database": "rpdr_test",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "production": {
-    "database": "rpdb_test",
+    "database": "rpdr_test",
     "host": "127.0.0.1",
     "dialect": "postgres"
   }

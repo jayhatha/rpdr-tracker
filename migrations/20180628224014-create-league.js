@@ -1,17 +1,20 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('usersLists', {
+    return queryInterface.createTable('leagues', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      userId: {
-        type: Sequelize.INTEGER
+      name: {
+        type: Sequelize.STRING
       },
-      listId: {
+      description: {
+        type: Sequelize.STRING
+      },
+      season: {
         type: Sequelize.INTEGER
       },
       createdAt: {
@@ -25,6 +28,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('usersLists');
+    return queryInterface.dropTable('leagues');
   }
 };

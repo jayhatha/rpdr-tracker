@@ -1,7 +1,8 @@
 
 <h1><%= list.name %></h1>
+<p><%= list.description %></p>
 
-<button class="btn pink accent-2 modal-trigger" href="#editname" type="button" id="<%= list.id %>">Rename List</button>
+<button class="btn pink accent-2 modal-trigger" href="#editname" type="button" id="<%= list.id %>">Edit List</button>
 
 <% queens.forEach(function(queen) { %>
     <div>
@@ -14,11 +15,15 @@
  <!-- edit name modal -->
    <div id="editname" class="modal">
      <div class="modal-content">
-       <h4>Rename List</h4>
+       <h4>Edit List</h4>
        <form class="update" action="/lists/<%= list.id %>/" method="POST">
          <div class="form-group">
            <label for="name">New List Name</label>
-           <input id="name" class="form-control" type="text" name="name">
+           <input id="name" class="form-control" type="text" name="name" value="<%= list.name %>">
+         </div>
+         <div class="form-group">
+           <label for="description">New List Description</label>
+           <input id="description" class="form-control" type="text" name="description" value="<%= list.description %>">
          </div>
 
          <input class="btn pink accent-2 modal-close" type="submit">

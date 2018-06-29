@@ -1,0 +1,7 @@
+<h1><%= league.name %></h1>
+
+<% teams.forEach(function(team) { %>
+    <div>
+      <a href="/teams/<%= team.id %>"><h4><%= team.name %></h4></a> - <p><%= team.user.name %></p>
+    </div>
+ <% }); %>

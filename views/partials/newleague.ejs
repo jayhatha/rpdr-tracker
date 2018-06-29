@@ -1,0 +1,35 @@
+<!-- new league modal -->
+  <div id="newleague" class="modal">
+    <div class="modal-content">
+      <h4>New League</h4>
+      <form action="/leagues" method="POST">
+        <div class="form-group">
+          <label for="name">League Name</label>
+          <input id="name" class="form-control" type="text" name="name">
+        </div>
+        <div class="form-group">
+          <label for="description">League Description</label>
+          <input id="description" class="form-control" type="text" name="description">
+        </div>
+        <select name="seasonId">
+          <option value="" disabled selected>Choose a season</option>
+          <option value="13">Season 10</option>
+          <option value="14">Season 11</option>
+          <option value="15">All-Stars 4</option>
+        </select>
+          <div class="form-group">
+            <label for="teamname">Your Team's Name</label>
+            <input id="teamname" class="form-control" type="text" name="teamname">
+          </div>
+          <div class="form-group">
+            <label for="teamdesc">Your Team's Description</label>
+            <input id="teamdesc" class="form-control" type="text" name="teamdesc">
+          </div>
+
+        <input class="btn pink accent-2 modal-close" type="submit">
+      </form>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-pink btn-flat">Close</a>
+    </div>
+  </div>
