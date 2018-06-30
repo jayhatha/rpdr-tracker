@@ -1,1 +1,43 @@
 <h1>YA DID IT KIDDO</h1>
+
+<h1><%= team.name %></h1>
+<p><%= team.user.name %></p>
+<p><%= team.description %></p>
+<p><%= team.id %></p>
+
+<h2>Your Picks</h2>
+
+<form action="/picks/<%= team.id %>" method="POST">
+  <div class="form-group">
+    <label for="week">Week</label>
+    <select name="week">
+      <option value="" disabled selected>Select a Week</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+      <option value="11">11</option>
+      <option value="12">12</option>
+      <option value="13">13</option>
+      <option value="14">14</option>
+    </select>
+  </div>
+  <div class="form-group">
+  <label for="queen">Select Your Queens</label>
+  <select name="queen">
+    <option value="" disabled selected>Choose a season</option>
+    <% queens.forEach(function(queen) { %>
+      <option value="<%= queen.id %>"><%= queen.name %></option>
+     <% }); %>
+  </select>
+ </div>
+
+
+  <input class="btn pink accent-2 modal-close" type="submit">
+</form>

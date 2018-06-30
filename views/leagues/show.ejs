@@ -5,3 +5,7 @@
       <a href="/teams/<%= team.id %>"><h4><%= team.name %></h4></a> - <p><%= team.user.name %></p>
     </div>
  <% }); %>
+
+ <% if (currentUser && userTeam.role === "admin") { %>
+     <a class="btn pink accent-2" type="button" href="/leagues/<%= league.id %>/manage">Manage League</a>
+   <% } %>

@@ -117,6 +117,7 @@ app.use('/auth', require('./controllers/auth'));
 app.use('/lists', require('./controllers/lists'));
 app.use('/leagues', require('./controllers/leagues'));
 app.use('/teams', require('./controllers/teams'));
+app.use('/picks', require('./controllers/picks'));
 
 var server = app.listen(process.env.PORT || 3000);
 

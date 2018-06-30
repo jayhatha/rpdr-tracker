@@ -18,14 +18,27 @@ router.get('/', function(req, res) {
 router.get('/:id', function(req, res) {
   db.league.findById(req.params.id)
   .then(function(league) {
-  league.getTeams({
+  db.team.findAll({
+    where: { leagueId: req.params.id },
     include: [db.user]
   }).then(function(teams) {
-    res.render('leagues/teams', {
+    if (req.user) {
+    db.team.find({
+      where: { userId: req.user.id, leagueId: req.params.id }
+    }).then(function(team) {
+    res.render('leagues/show', {
+      userTeam: team,
       teams: teams,
       league: league
     });
-    });
+  });
+} else {
+      res.render('leagues/show', {
+        teams: teams,
+        league: league
+      });
+    }
+  })
 });
 });
 
@@ -40,7 +53,8 @@ router.post('/', isLoggedIn, function(req, res) {
       league.createTeam({
         name: req.body.teamname,
         description: req.body.teamdesc,
-        userId: req.user.id
+        userId: req.user.id,
+        role: 'admin'
       }).then(function(team) {
               req.flash('success', 'League created!');
               res.redirect('#');
