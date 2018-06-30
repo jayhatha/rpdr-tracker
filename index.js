@@ -47,7 +47,6 @@ app.get('/', function(req, res) {
       if (req.user) {
         db.user.findById(req.user.id)
         .then(function(user) {
-        console.log('user found');
         user.getLists().then(function(lists) {
           res.render('season', { queens: queens, lists: lists });
         })
@@ -93,14 +92,13 @@ app.get('/queens/:id', function(req, res) {
   request(rpdrUrl, function(error, response, body) {
     if (response.statusCode == 200){
       var queen = JSON.parse(body);
-      console.log("my queen is " + queen.name);
+      console.log(queen);
       var ytUrl = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + queen.name + "+rupaul+lipsync&key=" + process.env.YOUTUBE_KEY;
       var eventUrl = "https://www.eventbriteapi.com/v3/events/search/?q=drag+rupaul+'" + queen.name + "'&token=" + process.env.ALYSSAS_TOKEN;
         request(ytUrl, function(error, response, body) {
             var videos = JSON.parse(body);
               request(eventUrl, function(error, response, body) {
               var events = JSON.parse(body);
-              console.log(videos.items[0].id.videoId);
               res.render('show', { queen: queen, videos: videos, events: events.events });
                 });
           });

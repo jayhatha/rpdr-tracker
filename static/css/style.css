@@ -3,8 +3,8 @@ h1 {
   text-shadow: 0 0 3px #000000;
 }
 
-input:focus {
-  border-bottom-color: #ff4081 !important;
+.card-title {
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000 !important;
 }
 
 .nav-link,
@@ -13,7 +13,7 @@ a.dropdown-trigger {
 }
 
 a {
-  color: pink !important;
+  color: #ff4081 !important;
   text-shadow: 0 0 10px #ffffff;
 }
 

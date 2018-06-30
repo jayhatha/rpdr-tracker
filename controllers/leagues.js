@@ -42,6 +42,20 @@ router.get('/:id', function(req, res) {
 });
 });
 
+//shows the admin page for the league
+router.get('/:id/manage', isLoggedIn, function(req, res) {
+  db.league.find({
+    where: {
+      id: req.params.id
+    },
+    include: [db.user, db.team]
+  }).then(function(team) {
+    res.render('leagues/admin', {
+      team: team,
+    });
+  })
+});
+
 // creates a new league and adds the first team to it
 router.post('/', isLoggedIn, function(req, res) {
   console.log(req.body.name);
@@ -61,6 +75,7 @@ router.post('/', isLoggedIn, function(req, res) {
         });
       });
     })
+
 
 
 module.exports = router;

@@ -1,6 +1,8 @@
 <h1> <%= queen.name %>  </h1>
+<h5>"<%= queen.quote %>"</h5>
+<p>Season: <%= queen.seasons[0].id %> Place: <%=queen.seasons[0].place %></p>
 <div class="row">
-<div class="col s12 m6">
+<div class="col s12 m5 offset-m1">
 <h5>Upcoming Events</h5>
   <% events.forEach(function(event) { %>
   <div class="row">
@@ -18,16 +20,18 @@
 </div>
 
 
-<div class="col s12 m6">
+<div class="col s12 m5 offset-m1">
 <h5>Lipsync Videos</h5>
-     <% videos.items.forEach(function(video) { %>
+
        <div class="row">
-            <div class="card">
-              <div class="card-content">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= video.id.videoId %>" frameborder="0" allow="encrypted-media" allowfullscreen></iframe>
+         <% videos.items.forEach(function(video) { %>
+              <div class="video-container">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= video.id.videoId %>" frameborder="0" allow="encrypted-media" allowfullscreen></iframe>
               </div>
+              <br>
+                <% }); %>
             </div>
         </div>
-          <% }); %>
+
           </div>
 </div>
