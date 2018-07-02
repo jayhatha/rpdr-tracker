@@ -1,10 +1,10 @@
 
 <h1><%= list.name %></h1>
 <p><%= list.description %></p>
-
+<% if (currentUser && currentUser.id === user.id) { %>
 <button class="btn pink accent-2 modal-trigger" href="#editname" type="button" id="<%= list.id %>">Edit List</button>
 <button class="btn red darken-1 deletelist" href="/lists/<%= list.id %>" type="button" id="<%= list.id %>">Delete List</button>
-
+ <% }; %>
 <% queens.forEach(function(queen) { %>
     <div>
       <a href="/queens/<%= queen.name %>"><h4><%= queen.name %></h4></a>
