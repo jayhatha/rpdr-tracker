@@ -3,6 +3,7 @@
 <p><%= list.description %></p>
 
 <button class="btn pink accent-2 modal-trigger" href="#editname" type="button" id="<%= list.id %>">Edit List</button>
+<button class="btn red darken-1 deletelist" href="/lists/<%= list.id %>" type="button" id="<%= list.id %>">Delete List</button>
 
 <% queens.forEach(function(queen) { %>
     <div>

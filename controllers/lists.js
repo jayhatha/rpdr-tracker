@@ -84,5 +84,15 @@ router.delete('/:listId/:queenId', function(req, res) {
   });
 });
 
+// deletes a list
+router.delete('/:listId', function(req, res) {
+    db.list.destroy({
+      where: {id: req.params.listId}
+    })
+    .then(function(data) {
+      res.sendStatus(200);
+  });
+});
+
 
 module.exports = router;

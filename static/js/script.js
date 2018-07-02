@@ -16,16 +16,27 @@ $(document).on("click", ".addqueen", function () {
 $('.delete').on('click', function(event) {
       event.preventDefault();
       var url = $(this).attr('href');
-      console.log(url);
       $.ajax({
         method: 'DELETE',
         url: url
       }).done(function(data) {
-        console.log(data);
 
         window.location = window.location.pathname;
       });
     });
+
+    // delete a list
+    $('.deletelist').on('click', function(event) {
+          event.preventDefault();
+          var url = $(this).attr('href');
+          $.ajax({
+            method: 'DELETE',
+            url: url
+          }).done(function(data) {
+
+            window.location = '/lists/';
+          });
+        });
 
 // rename your list
 $('.update').on('submit', function(event) {
