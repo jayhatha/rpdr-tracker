@@ -1,6 +1,12 @@
 <h1> <%= queen.name %>  </h1>
 <h5>"<%= queen.quote %>"</h5>
-<p>Season: <%= queen.seasons[0].id %> Place: <%=queen.seasons[0].place %></p>
+<p>Season: <%= queen.seasons[0].id %>, Place: <%=queen.seasons[0].place %></p>
+<p>Lipsyncs:</p>
+<ul>
+<% queen.lipsyncs.forEach(function(lipsync) { %>
+  <li>"<%= lipsync.name %>" - <%= lipsync.artist %></li>
+ <% }); %>
+</ul>
 <div class="row">
 <div class="col s12 m5 offset-m1">
 <h5>Upcoming Events</h5>

@@ -1,0 +1,41 @@
+<h1><%= user.name %></h1>
+<h6>Favorite Queen: <%= user.fave %>
+<p><%= user.bio %></p>
+
+<% if (currentUser && currentUser.id === user.id) { %>
+  <button class="btn pink accent-2 modal-trigger" href="#edituser" type="button" id="<%= user.id %>">Edit Profile</button>
+   <% }; %>
+
+<% lists.forEach(function(list) { %>
+    <div>
+      <a href="/lists/<%= list.id %>"><h4><%= list.name %></h4></a>
+    </div>
+ <% }); %>
+ <br>
+<button class="btn pink accent-2 modal-trigger newlist" type="button" href="#newlist">New List</button>
+
+
+<!-- edit user profile modal -->
+  <div id="edituser" class="modal">
+    <div class="modal-content">
+      <h4>Edit Profile</h4>
+      <form class="update" action="/users/<%= user.id %>/" method="POST">
+        <div class="form-group">
+          <label for="name">User Name</label>
+          <input id="name" class="form-control" type="text" name="name" value="<%= user.name %>">
+        </div>
+        <div class="form-group">
+          <label for="bio">Bio</label>
+          <input id="bio" class="form-control" type="text" name="bio" value="<%= user.bio %>">
+        </div>
+        <div class="form-group">
+          <label for="fave">Favorite Queen</label>
+          <input id="fave" class="form-control" type="text" name="fave" value="<%= user.fave %>">
+        </div>
+        <input class="btn pink accent-2 modal-close" type="submit">
+      </form>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-pink btn-flat">Close</a>
+    </div>
+  </div>

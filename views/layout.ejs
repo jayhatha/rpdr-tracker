@@ -19,7 +19,7 @@
       <a href="/" class="brand-logo"><img class="responsive-img" src="/img/logosmall.png"></a>
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a class="dropdown-trigger" href="#!" data-target="myleagues">Fantasy Leagues<i class="material-icons right">arrow_drop_down</i></a></li>
+        <!-- <li><a class="dropdown-trigger" href="#!" data-target="myleagues">Fantasy Leagues<i class="material-icons right">arrow_drop_down</i></a></li> -->
         <li><a class="dropdown-trigger" href="#!" data-target="mylists">My Lists<i class="material-icons right">arrow_drop_down</i></a></li>
         <li><a href="/all" class="nav-link">All Queens</a></li>
         <li><a class="dropdown-trigger" href="#!" data-target="seasons">Seasons<i class="material-icons right">arrow_drop_down</i></a></li>
@@ -37,12 +37,13 @@
  <ul id="mobile-demo" class="sidenav">
    <% if (currentUser) { %>
     <p>Hiieeeeeeeeee,  <%= currentUser.name%>!</p>
+   <li><a href="/users/<%= currentUser.id %>">Your Profile</a></li>
    <li><a href="/auth/logout">Log Out</a></li>
    <% } else { %>
      <li><a class="modal-trigger" href="#sign-up">Sign Up</a></li>
      <li><a class="modal-trigger" href="#login">Log In</a></li>
      <% }; %>
-   <li><a href="/all">All Queens</a></li>
+   <li><a href="/all">All Queens</a></li>`
        <li class="no-padding">
          <ul class="collapsible collapsible-accordion">
            <li>
@@ -80,7 +81,7 @@
            </li>
          </ul>
        </li>
-       <li class="no-padding">
+       <!-- <li class="no-padding">
          <ul class="collapsible collapsible-accordion">
            <li>
              <a class="collapsible-header">Fantasy Leagues<i class="material-icons">arrow_drop_down</i></a>
@@ -92,7 +93,7 @@
              </div>
            </li>
          </ul>
-       </li>
+       </li> -->
 
      </ul>
 
@@ -127,6 +128,7 @@
   <!-- login dropdown -->
   <ul id="login-dropdown" class="dropdown-content">
     <% if (currentUser) { %>
+    <li><a href="/users/<%= currentUser.id %>">Your Profile</a></li>
     <li><a href="/auth/logout">Log Out</a></li>
     <% } else { %>
       <li><a class="modal-trigger" href="#sign-up">Sign Up</a></li>

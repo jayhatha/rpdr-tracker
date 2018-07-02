@@ -6,7 +6,7 @@ var isLoggedIn = require('../middleware/isLoggedIn');
 var isTeamOwner = require('../middleware/isTeamOwner');
 var request = require('request');
 
-// shows one team
+// shows info about one team
 router.get('/:id', function(req, res) {
   db.team.find({
       where: {
@@ -21,6 +21,7 @@ router.get('/:id', function(req, res) {
     });
 });
 
+// shows the 'manage team' page
 router.get('/:id/manage', isLoggedIn, function(req, res) {
   db.team.find({
     where: {

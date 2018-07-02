@@ -36,8 +36,15 @@ app.use(function(req, res, next) {
 
 // GET / - main index of site
 app.get('/', function(req, res) {
-    res.render('index');
-  });
+  db.list.findAll({
+    include: [db.user]
+  })
+  .then(function(lists) {
+    res.render('index', {
+      lists: lists
+    });
+      });
+        });
 
   app.get('/season/:id', function(req, res) {
     var rpdrUrl = 'http://www.nokeynoshade.party/api/seasons/' + req.params.id+ '/queens';
@@ -92,7 +99,6 @@ app.get('/queens/:id', function(req, res) {
   request(rpdrUrl, function(error, response, body) {
     if (response.statusCode == 200){
       var queen = JSON.parse(body);
-      console.log(queen);
       var ytUrl = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + queen.name + "+rupaul+lipsync&key=" + process.env.YOUTUBE_KEY;
       var eventUrl = "https://www.eventbriteapi.com/v3/events/search/?q=drag+rupaul+'" + queen.name + "'&token=" + process.env.ALYSSAS_TOKEN;
         request(ytUrl, function(error, response, body) {
@@ -107,7 +113,29 @@ app.get('/queens/:id', function(req, res) {
         });
 });
 
+app.get('/users/:id', function(req, res) {
+  db.user.findById(req.params.id)
+  .then(function(user) {
+  user.getLists().then(function(lists) {
+    res.render('profile', {
+      user: user,
+      lists: lists
+    });
+    });
+});
+});
 
+app.put('/users/:id', isLoggedIn, function(req, res) {
+    db.user.update({
+      name: req.body.name,
+      bio: req.body.bio,
+      fave: req.body.fave
+    }, {
+      where: {id: req.params.id}
+    }).then(function(data) {
+      res.sendStatus('200').end();
+  })
+});
 
 
 

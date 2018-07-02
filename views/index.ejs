@@ -1,5 +1,184 @@
-<div>
-  <h1>HELLO INDEX</h1>
-  <p> not calling api right now to save calls</p>
-  <p><a href="#">Here's a link</a></p>
+<div class="row">
+  <h1>Welcome</h1>
+  <p>Make lists of your favorite drag race queens, and see their videos and upcoming events.</p>
+<div class="col s12 m7 offset-m1">
+  <h4> Seasons </h4>
+  <div class="col s12 m6">
+    <div class="card horizontal">
+      <div class="card-image">
+        <img src="/img/season1.jpg">
+      </div>
+      <div class="card-stacked">
+        <div class="card-action">
+          <h5><a href="/season/1">Season 1</a></h5>
+          <p>(2009)</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col s12 m6">
+    <div class="card horizontal">
+      <div class="card-image">
+        <img src="/img/season2.jpg">
+      </div>
+      <div class="card-stacked">
+        <div class="card-action">
+          <h5><a href="/season/2">Season 2</a></h5>
+          <p>(2010)</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col s12 m6">
+    <div class="card horizontal">
+      <div class="card-image">
+        <img src="/img/season3.jpg">
+      </div>
+      <div class="card-stacked">
+        <div class="card-action">
+          <h5><a href="/season/3">Season 3</a></h5>
+          <p>(2011)</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col s12 m6">
+    <div class="card horizontal">
+      <div class="card-image">
+        <img src="/img/season4.jpg">
+      </div>
+      <div class="card-stacked">
+        <div class="card-action">
+          <h5><a href="/season/4">Season 4</a></h5>
+          <p>(2012)</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col s12 m6">
+    <div class="card horizontal">
+      <div class="card-image">
+        <img src="/img/seasonas1.png">
+      </div>
+      <div class="card-stacked">
+        <div class="card-action">
+          <h5><a href="/season/5">All-Stars</a></h5>
+          <p>(2012)</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col s12 m6">
+    <div class="card horizontal">
+      <div class="card-image">
+        <img src="/img/season5.jpg">
+      </div>
+      <div class="card-stacked">
+        <div class="card-action">
+          <h5><a href="/season/6">Season 5</a></h5>
+          <p>(2013)</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col s12 m6">
+    <div class="card horizontal">
+      <div class="card-image">
+        <img src="/img/season6.jpg">
+      </div>
+      <div class="card-stacked">
+        <div class="card-action">
+          <h5><a href="/season/7">Season 6</a></h5>
+          <p>(2014)</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col s12 m6">
+    <div class="card horizontal">
+      <div class="card-image">
+        <img src="/img/season7.jpg">
+      </div>
+      <div class="card-stacked">
+        <div class="card-action">
+          <h5><a href="/season/8">Season 7</a></h5>
+          <p>(2015)</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col s12 m6">
+    <div class="card horizontal">
+      <div class="card-image">
+        <img src="/img/season8.jpg">
+      </div>
+      <div class="card-stacked">
+        <div class="card-action">
+          <h5><a href="/season/9">Season 8</a></h5>
+          <p>(2016)</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col s12 m6">
+    <div class="card horizontal">
+      <div class="card-image">
+        <img src="/img/seasonas2.jpg">
+      </div>
+      <div class="card-stacked">
+        <div class="card-action">
+          <h5><a href="/season/10">All-Stars 2</a></h5>
+          <p>(2016)</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col s12 m6">
+    <div class="card horizontal">
+      <div class="card-image">
+        <img src="/img/season9.png">
+      </div>
+      <div class="card-stacked">
+        <div class="card-action">
+          <h5><a href="/season/11">Season 9</a></h5>
+          <p>(2017)</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col s12 m6">
+    <div class="card horizontal">
+      <div class="card-image">
+        <img src="/img/seasonas3.png">
+      </div>
+      <div class="card-stacked">
+        <div class="card-action">
+          <h5><a href="/season/12">All-Stars 3</a></h5>
+          <p>(2018)</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col s12 m6">
+    <div class="card horizontal">
+      <div class="card-image">
+        <img src="/img/season10.jpg">
+      </div>
+      <div class="card-stacked">
+        <div class="card-action">
+          <h5><a href="/season/13">Season 10</a></h5>
+          <p>(2018)</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col s12 m3 offset-m1">
+  <h4>Recent Lists</h4>
+  <% lists.forEach(function(list) { %>
+      <div>
+        <a href="/lists/<%= list.id %>"><h5><%= list.name %></a> - <a href="/users/<%= list.userId %>"><%= list.user.name %></a></h5>
+      </div>
+   <% }); %>
+</div>
 </div>

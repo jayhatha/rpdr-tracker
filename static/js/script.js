@@ -43,3 +43,10 @@ $('.update').on('submit', function(event) {
     });
   });
 });
+
+// // attaches event listener to "select week" dropdown
+//
+// var s = document.getElementById("mySelect");
+// s.attachEvent("onchange", function() {
+//     // function here
+// });

@@ -12,6 +12,22 @@ a.dropdown-trigger {
   color: white !important;
 }
 
+.modal-content #authEmail,
+.modal-content #authName,
+.modal-content #authPassword {
+  color: black !important;
+}
+
+#authEmail,
+#authName,
+#authPassword {
+  color: white !important;
+}
+
+input:focus {
+  border-bottom-color: #ff4081 !important;
+}
+
 a {
   color: #ff4081 !important;
   text-shadow: 0 0 10px #ffffff;
