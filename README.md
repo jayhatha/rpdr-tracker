@@ -34,3 +34,5 @@ After doing all my styling and responsiveness from scratch on the previous proje
 Drag Race Database relies on the unofficial RuPaul's Drag Race API, No Key, No Shade (nokeynoshade.party) for info about each season and queen. It gets event data from Eventbrite and videos from YouTube.
 
 Here's an ER diagram showing what's going on with the back end of this thing, including the tables for the yet-to-be-finished fantasy league features:
+
+![erd](jayhatha.github.com/rpdr-tracker/screengrabs/dragraceerd.png)
