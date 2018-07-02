@@ -36,3 +36,15 @@ Drag Race Database relies on the unofficial RuPaul's Drag Race API, No Key, No S
 Here's an ER diagram showing what's going on with the back end of this thing, including the tables for the yet-to-be-finished fantasy league features:
 
 ![erd](/screengrabs/dragraceerd.png)
+
+**ABOUT THAT FANTASY LEAGUE STUFF**
+
+I did manage to build about half of the features I'll eventually need for the fantasy league, including creating all the necessary tables. I added the ability to create a league and a team, and to make picks. 
+
+Still to do: 
+
+   * let admins enter the data for each week's performances, and score the league's picks accordingly
+   * let users join public leagues, or request approval to join private ones
+   * let admins approve or deny requests to join
+   
+ I expect I'll be able to finish this stuff before this becomes a real portfolio piece. 
