@@ -35,4 +35,4 @@ Drag Race Database relies on the unofficial RuPaul's Drag Race API, No Key, No S
 
 Here's an ER diagram showing what's going on with the back end of this thing, including the tables for the yet-to-be-finished fantasy league features:
 
-![erd](jayhatha.github.com/rpdr-tracker/screengrabs/dragraceerd.png)
+![erd](/screengrabs/dragraceerd.png)
