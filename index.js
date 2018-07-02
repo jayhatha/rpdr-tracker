@@ -8,9 +8,12 @@ var session = require('express-session');
 var passport = require('./config/passportConfig');
 var isLoggedIn = require('./middleware/isLoggedIn');
 var db = require('./models');
+var rowdy = require('rowdy-logger');
 
 var app = express();
 app.set('view engine', 'ejs');
+
+var rowdyResults = rowdy.begin(app);
 
 app.use (express.static(__dirname + '/static'));
 app.use(bp.urlencoded({ extended: false }));
@@ -145,6 +148,8 @@ app.use('/leagues', require('./controllers/leagues'));
 app.use('/teams', require('./controllers/teams'));
 app.use('/picks', require('./controllers/picks'));
 
-var server = app.listen(process.env.PORT || 3000);
+var server = app.listen(process.env.PORT || 3000, function() {
+    rowdyResults.print()
+})
 
   module.exports = server;

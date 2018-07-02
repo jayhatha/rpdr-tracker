@@ -24,7 +24,7 @@ I have not yet accomplished these goals, but I'm well on my way. More on that be
 **TECHNOLOGIES USED**
 
 Front-End: HTML/EJS, CSS, JS, jQuery, Materialize
-Back-End: Node, Express, Postgres, Sequelize
+Back-End: Node, Express, Postgres, Sequelize, bcrypt
 
 After doing all my styling and responsiveness from scratch on the previous project, I decided to use Materialize for this one, both because I wanted to get more experience with it and because it offered a whole bunch of components I wanted for the site, including a nav bar and modals.
 
@@ -37,14 +37,72 @@ Here's an ER diagram showing what's going on with the back end of this thing, in
 
 ![erd](/screengrabs/dragraceerd.png)
 
+
+And here's a list of all routes the app uses:
+
+(╯°□°）╯︵ ┻━┻
+┌────────┬─────────────────────────┐
+│ Method │ Path                    │
+├────────┼─────────────────────────┤
+│ GET    │ /                       │
+├────────┼─────────────────────────┤
+│ GET    │ /season/:id             │
+├────────┼─────────────────────────┤
+│ GET    │ /all                    │
+├────────┼─────────────────────────┤
+│ GET    │ /queens/:id             │
+├────────┼─────────────────────────┤
+│ GET    │ /users/:id              │
+├────────┼─────────────────────────┤
+│ PUT    │ /users/:id              │
+├────────┼─────────────────────────┤
+│ GET    │ /auth/signup            │
+├────────┼─────────────────────────┤
+│ GET    │ /auth/login             │
+├────────┼─────────────────────────┤
+│ POST   │ /auth/signup            │
+├────────┼─────────────────────────┤
+│ POST   │ /auth/login             │
+├────────┼─────────────────────────┤
+│ GET    │ /auth/logout            │
+├────────┼─────────────────────────┤
+│ GET    │ /lists                  │
+├────────┼─────────────────────────┤
+│ GET    │ /lists/:id              │
+├────────┼─────────────────────────┤
+│ PUT    │ /lists/:index           │
+├────────┼─────────────────────────┤
+│ POST   │ /lists                  │
+├────────┼─────────────────────────┤
+│ POST   │ /lists/:id              │
+├────────┼─────────────────────────┤
+│ DELETE │ /lists/:listId/:queenId │
+├────────┼─────────────────────────┤
+│ DELETE │ /lists/:listId          │
+├────────┼─────────────────────────┤
+│ GET    │ /leagues                │
+├────────┼─────────────────────────┤
+│ GET    │ /leagues/:id            │
+├────────┼─────────────────────────┤
+│ GET    │ /leagues/:id/manage     │
+├────────┼─────────────────────────┤
+│ POST   │ /leagues                │
+├────────┼─────────────────────────┤
+│ GET    │ /teams/:id              │
+├────────┼─────────────────────────┤
+│ GET    │ /teams/:id/manage       │
+├────────┼─────────────────────────┤
+│ POST   │ /picks/:id              │
+└────────┴─────────────────────────┘
+
 **ABOUT THAT FANTASY LEAGUE STUFF**
 
-I did manage to build about half of the features I'll eventually need for the fantasy league, including creating all the necessary tables. I added the ability to create a league and a team, and to make picks. 
+I did manage to build about half of the features I'll eventually need for the fantasy league, including creating all the necessary tables. I added the ability to create a league and a team, and to make picks.
 
-Still to do: 
+Still to do:
 
    * let admins enter the data for each week's performances, and score the league's picks accordingly
    * let users join public leagues, or request approval to join private ones
    * let admins approve or deny requests to join
-   
- I expect I'll be able to finish this stuff before this becomes a real portfolio piece. 
+
+ I expect I'll be able to finish this stuff before this becomes a real portfolio piece.
