@@ -1,10 +1,12 @@
 <% include partials/addtolist %>
-<% queens.forEach(function(queen) { %>
-  <div class='row 12'>
-    <div>
+
+
+  <div class='row'>
+    <% queens.forEach(function(queen) { %>
+    <div class= 'col box s12 m6 l3 offset-l1'>
       <a href="/queens/<%= queen.id %>"><h4><%= queen.name %></h4></a>
-      <img src="<%= queen.image_url %>" height='200'><br>
+      <img src="<%= queen.image_url %>" class='responsive-img queen'><br>
       <button class="btn pink accent-2 modal-trigger addqueen" type="button" data-id="<%= queen.name %>" href="#addtolist">Add to List</button>
     </div>
+    <% }); %>
   </div>
- <% }); %>

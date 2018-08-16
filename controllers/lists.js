@@ -6,6 +6,7 @@ var isLoggedIn = require('../middleware/isLoggedIn');
 
 // shows all the current user's lists
   router.get('/', isLoggedIn, function(req, res) {
+    if (req.user) {
     db.user.findById(req.user.id)
     .then(function(user) {
     user.getLists().then(function(lists) {
@@ -15,6 +16,7 @@ var isLoggedIn = require('../middleware/isLoggedIn');
       });
       });
 });
+}
 });
 // shows a single list
 router.get('/:id', isLoggedIn, function(req, res) {
