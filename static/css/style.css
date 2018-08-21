@@ -1,6 +1,15 @@
 h1 {
-  font-family: 'Lemon', cursive;
-  text-shadow: 0 0 3px #000000;
+  font-family: "Lemon", cursive;
+  text-shadow: 0 0 3px #000;
+}
+
+thead {
+  color: black;
+  background-color: #ff4081;
+}
+
+th {
+  border-radius: 0 !important;
 }
 
 .box {
@@ -16,8 +25,13 @@ button {
   margin: 0 auto;
 }
 
+.card.horizontal {
+  background-color: black !important;
+}
+
 .card-title {
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000 !important;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000 !important;
 }
 
 .nav-link,
@@ -56,7 +70,7 @@ a:hover {
 }
 
 body {
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   background-color: black;
   color: #ff4081;
 }
