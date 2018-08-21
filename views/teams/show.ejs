@@ -4,3 +4,53 @@
 <% if (currentUser && currentUser.id === team.userId) { %>
     <a class="btn pink accent-2" type="button" href="/teams/<%= team.id %>/manage">Manage Team</a>
   <% } %>
+
+  <h2>Previously on RuPaul's Drag Race</h2>
+
+  <table class="responsive-table recap">
+          <thead>
+            <tr>
+                <th>Week</th>
+                <th><%= team.name %>'s Picks</th>
+                <th>Winner</th>
+                <th>Eliminated</th>
+                <th>Won Lipsync</th>
+                <th>Drama</th>
+                <th>Bonus Points</th>
+                <th><%= team.name %>'s Total</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Miz Cracker, Monet X. Change, Mayhem Miller, Blair St. Clair</td>
+              <td>Mayhem Miller</td>
+              <td>Vanessa Vanjie Mateo</td>
+              <td>Kalorie Karbdashian Williams</td>
+              <td></td>
+              <td></td>
+              <td>10</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Miz Cracker, Monet X. Change, Mayhem Miller, Blair St. Clair</td>
+              <td>The Vixen</td>
+              <td>Kalorie Karbdashian Williams</td>
+              <td>Eureka</td>
+              <td>The Vixen</td>
+              <td></td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Miz Cracker, Monet X. Change, Mayhem Miller, Blair St. Clair</td>
+              <td>Asia O'Hara</td>
+              <td>Yuhua Hamasaki</td>
+              <td>Mayhem Miller</td>
+              <td></td>
+              <td></td>
+              <td>5</td>
+            </tr>
+          </tbody>
+        </table>

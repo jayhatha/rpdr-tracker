@@ -1,6 +1,111 @@
 <h1><%= league.name %></h1>
 
-<% teams.forEach(function(team) { %>
-    <div>
-      <a href="/teams/<%= team.id %>"><h4><%= team.name %></h4></a><p> —<%= team.user.name %></p>
- <% }); %>
+<table class="responsive-table league">
+        <thead>
+          <tr>
+              <th>Rank</th>
+              <th>Change</th>
+              <th>Team Name</th>
+              <th>Team Manager</th>
+              <th>Total Points</th>
+              <th>Manage</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% team.forEach(function(team) { %>
+          <tr>
+            <td>1</td>
+            <td>0</td>
+            <td><%= team.name %></td>
+            <td>eh</td>
+            <td>99</td>
+            <td><button class="btn pink accent-2" type="button" data-id="" href="#manageteam">Manage</button></td>
+          </tr>
+           <% }); %>
+          <tr>
+            <td>2</td>
+            <td>+1</td>
+            <td>test team 2</td>
+            <td>team person 2</td>
+            <td>70</td>
+            <td></td>
+          </tr>
+          <tr>
+            <tr>
+              <td>3</td>
+              <td>-1</td>
+              <td>test team 3</td>
+              <td>team person 3</td>
+              <td>69</td>
+              <td></td>
+            </tr>
+        </tbody>
+      </table>
+
+      <table class="responsive-table admin">
+              <thead>
+                <tr>
+                    <th>Week</th>
+                    <th>Winner</th>
+                    <th>Won Mini-Challenge</th>
+                    <th>Eliminated</th>
+                    <th>Won Lipsync</th>
+                    <th>Drama</th>
+                    <th>Bonus Points</th>
+                    <th>Submit</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <!-- current week -->
+                  <td>1</td>
+                  <td><select>
+                        <!-- foreach active queen in season -->
+                        <option value="Aquaria">Aquaria</option>
+                        <option value="Eureka O'Hara">Eureka</option>
+                        <option value="Monet X. Change">Monet X. Change</option>
+                        <option value="Asia O'Hara">Asia O'Hara</option>
+                      </select>
+                  </td>
+                  <td><select>
+                        <!-- foreach active queen in season -->
+                        <option value="Aquaria">Aquaria</option>
+                        <option value="Eureka O'Hara">Eureka</option>
+                        <option value="Monet X. Change">Monet X. Change</option>
+                        <option value="Asia O'Hara">Asia O'Hara</option>
+                      </select></td>
+                  <td><select>
+                        <!-- foreach active queen in season -->
+                        <option value="Aquaria">Aquaria</option>
+                        <option value="Eureka O'Hara">Eureka</option>
+                        <option value="Monet X. Change">Monet X. Change</option>
+                        <option value="Asia O'Hara">Asia O'Hara</option>
+                      </select></td>
+                  <td><select>
+                        <!-- foreach active queen in season -->
+                        <option value="Aquaria">Aquaria</option>
+                        <option value="Eureka O'Hara">Eureka</option>
+                        <option value="Monet X. Change">Monet X. Change</option>
+                        <option value="Asia O'Hara">Asia O'Hara</option>
+                      </select></td>
+                  <td><select>
+                        <!-- foreach active queen in season -->
+                        <option value="Aquaria">Aquaria</option>
+                        <option value="Eureka O'Hara">Eureka</option>
+                        <option value="Monet X. Change">Monet X. Change</option>
+                        <option value="Asia O'Hara">Asia O'Hara</option>
+                      </select></td>
+                  <td><select>
+                        <!-- foreach active queen in season -->
+                        <option value="Aquaria">Aquaria</option>
+                        <option value="Eureka O'Hara">Eureka</option>
+                        <option value="Monet X. Change">Monet X. Change</option>
+                        <option value="Asia O'Hara">Asia O'Hara</option>
+                      </select></td>
+                  <td><button class="btn pink accent-2 pickqueen" type="submit" data-id="" href="#submitresults">Submit Results</button></td>
+
+                </tr>
+              </tbody>
+            </table>

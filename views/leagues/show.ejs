@@ -19,14 +19,16 @@
         </thead>
 
         <tbody>
+          <% teams.forEach(function(team) { %>
           <tr>
             <td>1</td>
             <td>0</td>
-            <td>test team</td>
-            <td>team person</td>
+            <td><%= team.name %></td>
+            <td><%= team.user.name %></td>
             <td>99</td>
             <td><button class="btn pink accent-2" type="button" data-id="" href="#manageteam">Manage</button></td>
           </tr>
+           <% }); %>
           <tr>
             <td>2</td>
             <td>+1</td>
@@ -46,9 +48,3 @@
             </tr>
         </tbody>
       </table>
-
-<% teams.forEach(function(team) { %>
-    <div>
-      <a href="/teams/<%= team.id %>"><h4><%= team.name %></h4></a><p> — <%= team.user.name %></p>
-    </div>
- <% }); %>
