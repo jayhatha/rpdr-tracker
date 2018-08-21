@@ -1,43 +1,92 @@
-<h1>YA DID IT KIDDO</h1>
-
 <h1><%= team.name %></h1>
 <p><%= team.user.name %></p>
 <p><%= team.description %></p>
 <p><%= team.id %></p>
 
-<h2>Your Picks</h2>
+<h2>Previously on RuPaul's Drag Race</h2>
 
-<form action="/picks/<%= team.id %>" method="POST">
-  <div class="form-group">
-    <label for="week">Week</label>
-    <select name="week">
-      <option value="" disabled selected>Select a Week</option>
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-      <option value="6">6</option>
-      <option value="7">7</option>
-      <option value="8">8</option>
-      <option value="9">9</option>
-      <option value="10">10</option>
-      <option value="11">11</option>
-      <option value="12">12</option>
-      <option value="13">13</option>
-      <option value="14">14</option>
-    </select>
-  </div>
-  <div class="form-group">
-  <label for="queen">Select Your Queens</label>
-  <select name="queen">
-    <option value="" disabled selected>Choose a season</option>
-    <% queens.forEach(function(queen) { %>
-      <option value="<%= queen.id %>"><%= queen.name %></option>
-     <% }); %>
-  </select>
- </div>
+<table class="responsive-table recap">
+        <thead>
+          <tr>
+              <th>Week</th>
+              <th>Your Picks</th>
+              <th>Winner</th>
+              <th>Eliminated</th>
+              <th>Won Lipsync</th>
+              <th>Drama</th>
+              <th>Bonus Points</th>
+              <th>Your Total</th>
+          </tr>
+        </thead>
 
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Miz Cracker, Monet X. Change, Mayhem Miller, Blair St. Clair</td>
+            <td>Mayhem Miller</td>
+            <td>Vanessa Vanjie Mateo</td>
+            <td>Kalorie Karbdashian Williams</td>
+            <td></td>
+            <td></td>
+            <td>10</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Miz Cracker, Monet X. Change, Mayhem Miller, Blair St. Clair</td>
+            <td>The Vixen</td>
+            <td>Kalorie Karbdashian Williams</td>
+            <td>Eureka</td>
+            <td>The Vixen</td>
+            <td></td>
+            <td>0</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Miz Cracker, Monet X. Change, Mayhem Miller, Blair St. Clair</td>
+            <td>Asia O'Hara</td>
+            <td>Yuhua Hamasaki</td>
+            <td>Mayhem Miller</td>
+            <td></td>
+            <td></td>
+            <td>5</td>
+          </tr>
+        </tbody>
+      </table>
 
-  <input class="btn pink accent-2 modal-close" type="submit">
-</form>
+<h2>Your Picks for This Week</h2>
+
+<table class="responsive-table picks">
+        <thead>
+          <tr>
+              <th>Queen</th>
+              <th>Total Points</th>
+              <th>Rank</th>
+              <th>Change</th>
+              <th>Select</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>Aquaria</td>
+            <td>15</td>
+            <td>1</td>
+            <td>+1</td>
+            <td><button class="btn pink accent-2 pickqueen" type="button" data-id="" href="#addtopicks">Pick</button></td>
+          </tr>
+          <tr>
+            <td>Asia O'Hara</td>
+            <td>13</td>
+            <td>2</td>
+            <td>-1</td>
+            <td><button class="btn pink accent-2 pickqueen" type="button" data-id="" href="#addtopicks">Pick</button></td>
+          </tr>
+          <tr>
+            <td>Eureka</td>
+            <td>10</td>
+            <td>3</td>
+            <td>0</td>
+            <td><button class="btn pink accent-2 pickqueen" type="button" data-id="" href="#addtopicks">Pick</button></td>
+          </tr>
+        </tbody>
+      </table>

@@ -1,11 +1,54 @@
 <h1><%= league.name %></h1>
+<% if (locals.userTeam) { %>
+  <% if (userTeam.role === "admin") { %>
+     <a class="btn pink accent-2" type="button" href="/leagues/<%= league.id %>/manage">Manage League</a>
+<% } %>
+<% } %>
+<p />
+
+<table class="responsive-table league">
+        <thead>
+          <tr>
+              <th>Rank</th>
+              <th>Change</th>
+              <th>Team Name</th>
+              <th>Team Manager</th>
+              <th>Total Points</th>
+              <th>Manage</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>0</td>
+            <td>test team</td>
+            <td>team person</td>
+            <td>99</td>
+            <td><button class="btn pink accent-2" type="button" data-id="" href="#manageteam">Manage</button></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>+1</td>
+            <td>test team 2</td>
+            <td>team person 2</td>
+            <td>70</td>
+            <td></td>
+          </tr>
+          <tr>
+            <tr>
+              <td>3</td>
+              <td>-1</td>
+              <td>test team 3</td>
+              <td>team person 3</td>
+              <td>69</td>
+              <td></td>
+            </tr>
+        </tbody>
+      </table>
 
 <% teams.forEach(function(team) { %>
     <div>
       <a href="/teams/<%= team.id %>"><h4><%= team.name %></h4></a><p> — <%= team.user.name %></p>
     </div>
  <% }); %>
-
- <% if (currentUser && userTeam.role === "admin") { %>
-     <a class="btn pink accent-2" type="button" href="/leagues/<%= league.id %>/manage">Manage League</a>
-   <% } %>
