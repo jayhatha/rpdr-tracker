@@ -42,28 +42,27 @@ app.get('/', function (req, res) {
   db.list.findAll({
     include: [db.user]
   })
-  .then(function (lists) {
-    res.render('index', {
-      lists: lists
+    .then(function (lists) {
+      res.render('index', {
+        lists: lists
+      });
     });
-  });
 });
 
 app.get('/season/:id', function (req, res) {
   var rpdrUrl = 'http://www.nokeynoshade.party/api/seasons/' + req.params.id + '/queens';
   request(rpdrUrl, function (error, response, body) {
-    if (response.statusCode == 200) {
+    if (response.statusCode === 200) {
       var queens = JSON.parse(body);
       if (req.user) {
         db.user.findById(req.user.id)
-        .then(function (user) {
-          user.getLists().then(function (lists) {
-            res.render('season', { queens: queens, lists: lists });
+          .then(function (user) {
+            user.getLists().then(function (lists) {
+              res.render('season', { queens: queens, lists: lists });
+            });
           });
-        });
       } else {
-        console.log('no user found, showing season queens');
-        res.render('season', { queens: queens, lists: []});
+        res.render('season', { queens: queens, lists: [] });
       }
     } else {
       res.render('error');
@@ -74,19 +73,17 @@ app.get('/season/:id', function (req, res) {
 app.get('/all', function (req, res) {
   var rpdrUrl = 'http://www.nokeynoshade.party/api/queens/all';
   request(rpdrUrl, function (error, response, body) {
-    if (response.statusCode == 200) {
+    if (response.statusCode === 200) {
       var queens = JSON.parse(body);
       if (req.user) {
         db.user.findById(req.user.id)
-        .then(function (user) {
-          console.log('user found');
-          user.getLists().then(function (lists) {
-            res.render('all', { queens: queens, lists: lists });
+          .then(function (user) {
+            user.getLists().then(function (lists) {
+              res.render('all', { queens: queens, lists: lists });
+            });
           });
-        });
       } else {
-        console.log('no user found, showing season queens');
-        res.render('season', { queens: queens, lists: []});
+        res.render('all', { queens: queens, lists: [] });
       }
     } else {
       res.render('error');
@@ -94,13 +91,13 @@ app.get('/all', function (req, res) {
   });
 });
 
-  // shows videos and events for one queen
+// shows videos and events for one queen
 
 app.get('/queens/:id', function (req, res) {
   var rpdrUrl = 'http://www.nokeynoshade.party/api/queens/' + req.params.id + '/';
 
   request(rpdrUrl, function (error, response, body) {
-    if (response.statusCode == 200) {
+    if (response.statusCode === 200) {
       var queen = JSON.parse(body);
       var ytUrl = 'https://www.googleapis.com/youtube/v3/search?part=snippet&q=' + queen.name + '+rupaul+lipsync&key=' + process.env.YOUTUBE_KEY;
       var eventUrl = "https://www.eventbriteapi.com/v3/events/search/?q=drag+rupaul+'" + queen.name + "'&token=" + process.env.ALYSSAS_TOKEN;
@@ -119,14 +116,14 @@ app.get('/queens/:id', function (req, res) {
 
 app.get('/users/:id', function (req, res) {
   db.user.findById(req.params.id)
-  .then(function (user) {
-    user.getLists().then(function (lists) {
-      res.render('profile', {
-        user: user,
-        lists: lists
+    .then(function (user) {
+      user.getLists().then(function (lists) {
+        res.render('profile', {
+          user: user,
+          lists: lists
+        });
       });
     });
-  });
 });
 
 app.put('/users/:id', isLoggedIn, function (req, res) {

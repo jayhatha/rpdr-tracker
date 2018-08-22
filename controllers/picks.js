@@ -13,15 +13,15 @@ router.get('/', function (req, res) {
 
 router.post('/:id', isLoggedIn, function (req, res) {
   db.team.findById(req.params.id)
-  .then(function (team) {
-    db.pick.findOrCreate({
-      where: { weekId: req.body.week, queenId: req.body.queen }
-    }).spread(function (pick, created) {
-      team.addPick(pick).then(function (data) {
-        res.redirect('/teams/' + req.params.id + '/manage');
+    .then(function (team) {
+      db.pick.findOrCreate({
+        where: { weekId: req.body.week, queenId: req.body.queen }
+      }).spread(function (pick, created) {
+        team.addPick(pick).then(function (data) {
+          res.redirect('/teams/' + req.params.id + '/manage');
+        });
       });
-    });
-  }).catch(function (error) {
+    }).catch(function (error) {
     res.status(400).render('main/404');
   });
 });
