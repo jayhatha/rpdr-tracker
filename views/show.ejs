@@ -1,5 +1,7 @@
 <h1> <%= queen.name %>  </h1>
-<h5>"<%= queen.quote %>"</h5>
+<% if (queen.quote != "\"\"") { %>
+<h5>&ldquo;<%= queen.quote %>&rdquo;</h5>
+    <% }; %>
 <p>Season: <%= queen.seasons[0].id %>, Place: <%=queen.seasons[0].place %></p>
 <p>Lipsyncs:</p>
 <ul>
@@ -10,6 +12,7 @@
 <div class="row">
 <div class="col s12 m5 offset-m1">
 <h5>Upcoming Events</h5>
+<% if (events.length > 0) {%>
   <% events.forEach(function(event) { %>
   <div class="row">
        <div class="card">
@@ -23,6 +26,9 @@
        </div>
    </div>
      <% }); %>
+ <% } else { %>
+   <h5>None</h5>
+   <% }; %>
 </div>
 
 

@@ -108,6 +108,7 @@ app.get('/queens/:id', function (req, res) {
         var videos = JSON.parse(body);
         request(eventUrl, function (error, response, body) {
           var events = JSON.parse(body);
+          console.log(events);
           res.render('show', { queen: queen, videos: videos, events: events.events });
         });
       });

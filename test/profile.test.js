@@ -12,7 +12,7 @@ before(function (done) {
 
 describe('GET /lists', function () {
   it('should redirect to /auth/login if not logged in', function (done) {
-    request(app).get('/profile')
+    request(app).get('/lists')
     .expect('Location', '/auth/login')
     .expect(302, done);
   });
