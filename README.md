@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/jayhatha/rpdr-tracker.svg?branch=master)](https://travis-ci.org/jayhatha/rpdr-tracker)
+
 **DRAG RACE DATABASE**
 
 As a huge fan of RuPaul's Drag Race, and with Season 10 finishing up during project week, I thought this would be a perfect time to build the missing app for Drag Race fans.
