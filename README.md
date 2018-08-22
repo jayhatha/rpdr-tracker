@@ -1,16 +1,18 @@
-**DRAG RACE DATABASE**
+# DRAG RACE DATABASE
 
-As a huge fan of RuPaul's Drag Race, and with Season 10 finishing up during project week, I thought this would be a perfect time to build the missing app for Drag Race fans.
+[![Build Status](https://travis-ci.org/jayhatha/rpdr-tracker.svg?branch=master)](https://travis-ci.org/jayhatha/rpdr-tracker)
+
+As a huge fan of *RuPaul's Drag Race*, and with Season 10 finishing up during project week, I thought this would be a perfect time to build the missing app for Drag Race fans.
 
 I didn't quite get all the way there in a week, but this was the vision:
 
-* You'd be able to make and share lists of your favorite queens. Or your least favorite. Or your dream season of RuPaul's Drag Race All-Stars. Or just Violet Chachki 30 times. Whatever you want!
+* You'd be able to make and share lists of your favorite queens. Or your least favorite. Or your dream season of *RuPaul's Drag Race All-Stars*. Or just Violet Chachki 30 times. Whatever you want!
 
 * You'd be able to see any queen's upcoming live appearances using the EventBrite API, and YouTube videos of their performances.
 
 I accomplished those goals, but there was one more thing I wanted to—and it turned out to be 5 to 10 times harder than the rest of the project combined.
 
-* You'd be able to join RuPaul's Drag Race fantasy league (I swear this is a real thing!) with your friends or coworkers or strangers from the internet.
+* You'd be able to join a Drag Race fantasy league (I swear this is a real thing!) with your friends or coworkers or strangers from the internet.
 
 Breaking that down a little further:
     * You'd be able to create and name your team, and pick which queens you think will do best on each week of the show.
@@ -25,6 +27,9 @@ I have not yet accomplished these goals, but I'm well on my way. More on that be
 
 Front-End: HTML/EJS, CSS, JS, jQuery, Materialize
 Back-End: Node, Express, Postgres, Sequelize, bcrypt
+Testing: Mocha/Chai
+CI: Travis
+Hosting: Heroku
 
 After doing all my styling and responsiveness from scratch on the previous project, I decided to use Materialize for this one, both because I wanted to get more experience with it and because it offered a whole bunch of components I wanted for the site, including a nav bar and modals.
 
@@ -101,8 +106,7 @@ I did manage to build about half of the features I'll eventually need for the fa
 
 Still to do:
 
+   * A UI refresh — there was only so much I could while building a full-stack app in a week.
    * let admins enter the data for each week's performances, and score the league's picks accordingly
    * let users join public leagues, or request approval to join private ones
    * let admins approve or deny requests to join
-
- I expect I'll be able to finish this stuff before this becomes a real portfolio piece.
