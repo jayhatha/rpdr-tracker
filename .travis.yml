@@ -1,5 +1,17 @@
 language: node_js
 node_js:
-  - 10.1.0
+- stable
+cache:
+  directories:
+  - node_modules
+services:
+- postgresql
+before_script:
+- psql -c 'create database dragrace;' -U postgres
 script:
-  - "npm run test"
+- npm run test
+true:
+  branch: master
+deploy:
+  api_key:
+    secure: K7aui/zP0g0OVMte6mCVjTp4UBo64COEXAX5MUm+XngDnCe4JxpJ85cctueYt0SW9fXpq+UG7BBKXWrWVsCQjNviV2zaHN1cCwozHZINlLARn6DlELe5SoOCsxeDVpQoxUk02yaav+E0fqJ1Ofui4kenX/2sqeeaxCB93SQCf6uXcV8WfPnmqB10gr8YOEDYL1FTsEBVPMrBanRaxt8s0F6tEQ5y8iY7U1lKftt2ygYtkfotm+lL57hH4wH672PZXjVQ3D0QMdk3rDWf5vqyrFsZ0h3cb7HRDJYqA/jk+pBsYG+2w2ClLayIZepfgvHKlUy1DBcQWvxB1ID6QC1P/MtSQyY5KI6RVWqzANvQ2pNzjVWm9eR39ob04a0Z0qMOwQ/N7NbbB9b7Tw4DNd8cfbiqrbkHBF2A4uHLFOwHFNE3araVK02gpaXWfU8SgbHNawctzrq4on30WodU7iHP1mJ5bM0dfpsnAPPjqZJ/qwWrR5HaxLGbZ9mX+Bg4APzuV3rnCi/k01Pw287tOYYRdJjCGm+LtjBcJBIGGwck6cF7/OrEreOTMinHiBu9QR+lTFGp2JiifnLQry5xOild12w0HagJsJ/tBcHdlPiALyBQiGvd/o6fkcqiQ/QAOh5siteiNzT68l6aYMxo7DN8oJgWt5H70p3kigO9q2oeOe4=
