@@ -11,6 +11,15 @@ module.exports = {
       x: {
         type: Sequelize.STRING
       },
+      weekId: {
+        type: Sequelize.INTEGER
+      },
+      teamId: {
+        type: Sequelize.INTEGER
+      },
+      queenId: {
+        type: Sequelize.INTEGER
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

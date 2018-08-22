@@ -6,10 +6,10 @@ module.exports = (sequelize, DataTypes) => {
     weekId: DataTypes.INTEGER,
     queenId: DataTypes.INTEGER
   }, {});
-  pick.associate = function(models) {
-models.pick.belongsTo(models.team);
-models.pick.belongsTo(models.week);
-models.pick.hasMany(models.queen);
+  pick.associate = function (models) {
+    models.pick.belongsTo(models.team);
+    models.pick.belongsTo(models.week);
+    models.pick.hasOne(models.queen);
   };
   return pick;
 };

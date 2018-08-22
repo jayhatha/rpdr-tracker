@@ -11,6 +11,9 @@ module.exports = {
       points: {
         type: Sequelize.INTEGER
       },
+      pickId: {
+        type: Sequelize.INTEGER
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

@@ -1,11 +1,11 @@
 {
   "development": {
-    "database": "rpdr_test",
+    "database": "dragrace",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "test": {
-    "database": "rpdr_test",
+    "database": "dragrace",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
