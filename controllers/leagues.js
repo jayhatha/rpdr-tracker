@@ -51,7 +51,7 @@ router.get('/:id/manage', isLoggedIn, function (req, res) {
     include: [db.team]
   }).then(function (league) {
     res.render('leagues/admin', {
-      league: league
+      league: league, teams: league.teams
     });
   });
 });

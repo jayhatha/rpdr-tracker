@@ -1,11 +1,17 @@
+<div class="row s12">
+  <div class="col s12 m5 l5">
 <h1><%= league.name %></h1>
 <% if (locals.userTeam) { %>
   <% if (userTeam.role === "admin") { %>
      <a class="btn pink accent-2" type="button" href="/leagues/<%= league.id %>/manage">Manage League</a>
 <% } %>
 <% } %>
-<p />
-
+</div>
+<div class="col s12 m5 l5 leaguedesc">
+  <h4>&ldquo;<%= league.description %>&rdquo;</h4>
+</div>
+</div>
+<div class="row s12">
 <table class="responsive-table league">
         <thead>
           <tr>
@@ -14,7 +20,7 @@
               <th>Team Name</th>
               <th>Team Manager</th>
               <th>Total Points</th>
-              <th>Manage</th>
+              <th></th>
           </tr>
         </thead>
 
@@ -48,3 +54,4 @@
             </tr>
         </tbody>
       </table>
+    </div>

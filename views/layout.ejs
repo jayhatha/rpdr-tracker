@@ -19,8 +19,10 @@
       <a href="/" class="brand-logo"><img class="responsive-img" src="/img/logosmall.png"></a>
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <% if (currentUser) { %>
         <li><a class="dropdown-trigger" href="#!" data-target="myleagues">Fantasy Leagues<i class="material-icons right">arrow_drop_down</i></a></li>
         <li><a class="dropdown-trigger" href="#!" data-target="mylists">My Lists<i class="material-icons right">arrow_drop_down</i></a></li>
+        <% }%>
         <li><a href="/all" class="nav-link">All Queens</a></li>
         <li><a class="dropdown-trigger" href="#!" data-target="seasons">Seasons<i class="material-icons right">arrow_drop_down</i></a></li>
         <li><a class="dropdown-trigger" href="#!" data-target="login-dropdown">
@@ -68,6 +70,7 @@
            </li>
          </ul>
        </li>
+       <% if (currentUser) { %>
        <li class="no-padding">
          <ul class="collapsible collapsible-accordion">
            <li>
@@ -81,14 +84,18 @@
            </li>
          </ul>
        </li>
+       <% }; %>
        <li class="no-padding">
          <ul class="collapsible collapsible-accordion">
            <li>
-             <a class="collapsible-header">Fantasy Leagues<i class="material-icons">arrow_drop_down</i></a>
+             <a class="collapsible-header"><i class="material-icons">arrow_drop_down</i>Fantasy Leagues</a>
              <div class="collapsible-body">
                <ul>
                  <li><a href="/leagues">All Leagues</a></li>
+                 <% if (currentUser) { %>
                  <li><a class="modal-trigger" href="#newleague">New League</a></li>
+                 <li><a class="modal-trigger" href="#">My Teams</a></li>
+                 <% }; %>
                </ul>
              </div>
            </li>
@@ -124,6 +131,7 @@
   <ul id="myleagues" class="dropdown-content">
     <li><a href="/leagues">All Leagues</a></li>
     <li><a class="modal-trigger" href="#newleague">New League</a></li>
+    <li><a class="modal-trigger" href="#">My Teams</a></li>
   </ul>
   <!-- login dropdown -->
   <ul id="login-dropdown" class="dropdown-content">

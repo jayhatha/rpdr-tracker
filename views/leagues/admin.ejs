@@ -1,5 +1,5 @@
 <h1><%= league.name %></h1>
-
+<div class = 'row s12'>
 <table class="responsive-table league">
         <thead>
           <tr>
@@ -9,11 +9,12 @@
               <th>Team Manager</th>
               <th>Total Points</th>
               <th>Manage</th>
+              <th></th>
           </tr>
         </thead>
 
         <tbody>
-          <% team.forEach(function(team) { %>
+          <% teams.forEach(function(team) { %>
           <tr>
             <td>1</td>
             <td>0</td>
@@ -42,7 +43,9 @@
             </tr>
         </tbody>
       </table>
-
+</div>
+<p />
+<div class="row s12">
       <table class="responsive-table admin">
               <thead>
                 <tr>
@@ -53,7 +56,7 @@
                     <th>Won Lipsync</th>
                     <th>Drama</th>
                     <th>Bonus Points</th>
-                    <th>Submit</th>
+                    <th></th>
                 </tr>
               </thead>
 
@@ -61,51 +64,58 @@
                 <tr>
                   <!-- current week -->
                   <td>1</td>
-                  <td><select>
+                  <td><select class='browser-default'>
                         <!-- foreach active queen in season -->
+                        <option value="" selected disabled hidden>select</option>
                         <option value="Aquaria">Aquaria</option>
                         <option value="Eureka O'Hara">Eureka</option>
                         <option value="Monet X. Change">Monet X. Change</option>
                         <option value="Asia O'Hara">Asia O'Hara</option>
                       </select>
                   </td>
-                  <td><select>
+                  <td><select class='browser-default'>
                         <!-- foreach active queen in season -->
+                        <option value="" selected disabled hidden>select</option>
                         <option value="Aquaria">Aquaria</option>
                         <option value="Eureka O'Hara">Eureka</option>
                         <option value="Monet X. Change">Monet X. Change</option>
                         <option value="Asia O'Hara">Asia O'Hara</option>
                       </select></td>
-                  <td><select>
+                  <td><select class='browser-default'>
                         <!-- foreach active queen in season -->
+                        <option value="" selected disabled hidden>select</option>
                         <option value="Aquaria">Aquaria</option>
                         <option value="Eureka O'Hara">Eureka</option>
                         <option value="Monet X. Change">Monet X. Change</option>
                         <option value="Asia O'Hara">Asia O'Hara</option>
                       </select></td>
-                  <td><select>
+                  <td><select class='browser-default'>
                         <!-- foreach active queen in season -->
+                        <option value="" selected disabled hidden>select</option>
                         <option value="Aquaria">Aquaria</option>
                         <option value="Eureka O'Hara">Eureka</option>
                         <option value="Monet X. Change">Monet X. Change</option>
                         <option value="Asia O'Hara">Asia O'Hara</option>
                       </select></td>
-                  <td><select>
+                  <td><select class='browser-default'>
                         <!-- foreach active queen in season -->
+                        <option value="" selected disabled hidden>select</option>
                         <option value="Aquaria">Aquaria</option>
                         <option value="Eureka O'Hara">Eureka</option>
                         <option value="Monet X. Change">Monet X. Change</option>
                         <option value="Asia O'Hara">Asia O'Hara</option>
                       </select></td>
-                  <td><select>
+                  <td><select class='browser-default'>
                         <!-- foreach active queen in season -->
+                        <option value="" selected disabled hidden>select</option>
                         <option value="Aquaria">Aquaria</option>
                         <option value="Eureka O'Hara">Eureka</option>
                         <option value="Monet X. Change">Monet X. Change</option>
                         <option value="Asia O'Hara">Asia O'Hara</option>
                       </select></td>
-                  <td><button class="btn pink accent-2 pickqueen" type="submit" data-id="" href="#submitresults">Submit Results</button></td>
+                  <td><button class="btn pink accent-2" type="submit" data-id="" href="#submitresults">Submit</button></td>
 
                 </tr>
               </tbody>
             </table>
+       </div>
