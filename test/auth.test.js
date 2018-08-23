@@ -35,13 +35,37 @@ describe("Auth Controller", () => {
         .expect(302, done);
     });
 
-    it("should redirect to /auth/signup on failure", (done) => {
+    it("should fail if the user already exists", (done) => {
+      request(app).post("/auth/signup")
+        .set("Content-Type", "application/x-www-form-urlencoded")
+        .send({
+          email: "new@new.co",
+          name: "Brian",
+          password: "passwodrjsdhfj"
+        })
+        .expect("Location", "/auth/signup")
+        .expect(302, done);
+    });
+
+    it("should fail if the password is too short", (done) => {
+      request(app).post("/auth/signup")
+        .set("Content-Type", "application/x-www-form-urlencoded")
+        .send({
+          email: "new@newark.com",
+          name: "Brian",
+          password: "p"
+        })
+        .expect("Location", "/auth/signup")
+        .expect(302, done);
+    });
+
+    it("should fail if the email is not valid", (done) => {
       request(app).post("/auth/signup")
         .set("Content-Type", "application/x-www-form-urlencoded")
         .send({
           email: "new",
           name: "Brian",
-          password: "p"
+          password: "pdsfhsdhfsdf"
         })
         .expect("Location", "/auth/signup")
         .expect(302, done);
