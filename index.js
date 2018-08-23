@@ -43,7 +43,6 @@ app.get("/", (req, res) => {
     include: [db.user]
   })
     .then((lists) => {
-      console.log(res.locals.currentUser);
       res.render("index", {
         lists });
     });
