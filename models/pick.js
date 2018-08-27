@@ -1,15 +1,15 @@
-'use strict';
+"use strict";
+
 module.exports = (sequelize, DataTypes) => {
-  var pick = sequelize.define('pick', {
-    x: DataTypes.STRING,
+  const pick = sequelize.define("pick", {
     teamId: DataTypes.INTEGER,
     weekId: DataTypes.INTEGER,
-    queenId: DataTypes.INTEGER
+    queen: DataTypes.STRING,
+    points: DataTypes.INTEGER
   }, {});
   pick.associate = function (models) {
     models.pick.belongsTo(models.team);
     models.pick.belongsTo(models.week);
-    models.pick.hasOne(models.queen);
   };
   return pick;
 };
