@@ -1,93 +1,103 @@
-h1 {
-  font-family: "Lemon", cursive;
-  text-shadow: 0 0 3px #000;
+body
+
+{   background-color: black;
+    color: #ff4081;
+    font-family: 'Lato', sans-serif;
 }
 
-table {
-  margin: 5rem auto !important;
+input:focus
+{
+    border-bottom-color: #ff4081 !important;
 }
 
-.leaguedesc {
-  margin-top: 2rem;
-  font-weight: lighter;
+a
+{
+    color: #ff4081 !important;
+    text-shadow: 0 0 10px #fff;
 }
 
-thead {
-  color: black;
-  background-color: #ff4081;
+a:hover
+{
+    text-decoration: underline;
 }
 
-th {
-  border-radius: 0 !important;
+h1
+{
+    font-family: 'Lemon', cursive;
+
+    text-shadow: 0 0 3px #000;
 }
 
-.box {
-  margin: 10px;
+table
+{
+    margin: 5rem auto !important;
 }
 
-button {
-  margin: 0 auto;
+.leaguedesc
+{
+    font-weight: lighter;
+
+    margin-top: 2rem;
 }
 
-.select-dropdown span {
-  color: #ff4081 !important;
+thead
+{
+    background-color: #ff4081;
+    color: black;
+
 }
 
-.queen {
-  display: block;
-  margin: 0 auto;
+th
+{
+    border-radius: 0 !important;
 }
 
-.card.horizontal {
-  background-color: black !important;
+.box
+{
+    margin: 10px;
 }
 
-.card-title {
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+button
+{
+    margin: 0 auto;
+}
+
+.select-dropdown span
+{
+    color: #ff4081 !important;
+}
+
+.queen
+{
+    display: block;
+    margin: 0 auto;
+}
+
+.card.horizontal
+{
+    background-color: black !important;
+}
+
+.card-title
+{
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
     1px 1px 0 #000 !important;
-}
-
-.nav-link,
-a.dropdown-trigger {
-  color: white !important;
-}
-
-a.sidenav-trigger {
-  color: white !important;
 }
 
 .modal-content #authEmail,
 .modal-content #authName,
-.modal-content #authPassword {
-  color: black !important;
+.modal-content #authPassword,
+li a
+{
+    color: black !important;
 }
 
 #authEmail,
 #authName,
-#authPassword {
-  color: white !important;
-}
-
-input:focus {
-  border-bottom-color: #ff4081 !important;
-}
-
-a {
-  color: #ff4081 !important;
-  text-shadow: 0 0 10px #ffffff;
-}
-
-li a {
-  color: black !important;
-  text-shadow: 0 0 10px #ffffff;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-body {
-  font-family: "Lato", sans-serif;
-  background-color: black;
-  color: #ff4081;
+#authPassword,
+.sidenav-trigger,
+.nav-link,
+.dropdown-trigger
+{
+    color: white !important;
 }
