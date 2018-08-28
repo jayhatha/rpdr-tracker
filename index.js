@@ -53,7 +53,9 @@ app.get("/", (req, res) => {
 app.get("/season/:id", (req, res) => {
   const rpdrUrl = `http://www.nokeynoshade.party/api/seasons/${req.params.id}/queens`;
   request(rpdrUrl, (error, response, body) => {
-    if (response.statusCode === 200) {
+    if (body === "[]") {
+      res.sendStatus(404);
+    } else if (response.statusCode === 200) {
       const queens = JSON.parse(body);
       if (req.user) {
         db.user.findById(req.user.id)
@@ -149,6 +151,11 @@ app.use("/lists", require("./controllers/lists"));
 app.use("/leagues", require("./controllers/leagues"));
 app.use("/teams", require("./controllers/teams"));
 app.use("/picks", require("./controllers/picks"));
+
+// The 404 Route (ALWAYS Keep this as the last route)
+app.get("*", (req, res) => {
+  res.send("what???", 404);
+});
 
 const server = app.listen(process.env.PORT || 3000, () => {
   rowdyResults.print();
